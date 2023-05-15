@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pdf</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <style>
+        body {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        /* table */
+        td {
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            padding: 4px;
+            font-weight: 500;
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            background-color: rgb(230, 227, 227);
+        }
+
+        td {
+            padding: 4px;
+        }
+
+        /* header style */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            position: fixed;
+
+        }
+        .mainHeader{
+            border: solid black 1px;
+            margin: 0px 15px;
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 35px;
+        }
+
+        .divider {
+            height: 35px;
+            background-color: black;
+            width: 1px;
+        }
+
+        .head1 {
+            width: 33%;
+        }
+
+        .head1 :nth-child(1) {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .head1 :nth-child(1) div :nth-child(1) {
+            color: rgb(7, 77, 168);
+            font-size: 13px;
+            display: flex;
+            justify-content: start;
+        }
+
+        .head1 :nth-child(1) div :nth-child(2) {
+            color: rgb(7, 77, 168);
+            font-size: 10px;
+        }
+
+        .head1 :nth-child(1) div {
+            color: rgb(219, 63, 110);
+        }
+
+        .head :nth-child(3) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .head :nth-child(3) p {
+            color: gray;
+            font-size: 12px;
+        }
+
+        .head :nth-child(5) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            color: gray;
+            padding: 0px 0px;
+            padding-bottom: 3px;
+            padding-top: 1px;
+
+        }
+
+        /* top bar style */
+        .topbar {
+            border: black solid 2px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            color: rgb(94, 89, 89);
+        }
+
+        .topbar :nth-child(1) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .topbar :nth-child(1) div {
+            display: flex;
+            gap: 20px;
+
+        }
+
+        .topbar :nth-child(1) div div {
+            display: flex;
+            border: solid rgb(116, 113, 113) 1px;
+            border-top: none;
+            background-color: rgb(228, 222, 222);
+            height: 100%;
+            width: 250px;
+        }
+
+        .topbar :nth-child(3) {
+            display: flex;
+        }
+
+        .topbar :nth-child(3) div {
+            width: 20%;
+        }
+
+        .topbar :nth-child(5) {
+            margin-bottom: 4px;
+            color: rgb(82, 73, 73);
+        }
+
+        /* main table on style */
+        .mainTable {
+            border-top: solid black 1px;
+            border-bottom: solid black 2px;
+            border-left: solid black 2px;
+            border-right: solid black 2px;
+            margin-top: 6px;
+        }
+
+        .mainTable1 {
+            display: flex;
+
+        }
+
+        /* main 1 left */
+        .mainTable1Left {
+            width: 2%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            border-right: solid 1px black;
+        }
+
+        .mainTable1Left p {
+            writing-mode: vertical-lr;
+            text-orientation: sideways-right;
+            font-size: 13px;
+        }
+
+        .mainTable1Left div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* main 1 right */
+        .mainTable1Right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mainTable1Right p {
+            writing-mode: vertical-rl;
+            text-orientation: sideways-right;
+            font-size: 13px;
+        }
+
+        .mainTable1Middle {
+            width: 98.5%;
+        }
+
+        .mainTable1Middle1 {
+            display: flex;
+            border-bottom: solid black 2px;
+
+        }
+
+        .middleOne {
+            width: 25%;
+            border-left: black solid 1px;
+            border-right: solid black 1px;
+        }
+
+        .middleOne :nth-child(1) {
+            text-align: center;
+        }
+
+        .middleOne div {
+            border-bottom: solid black 1px;
+        }
+
+        .middleTwo {
+            width: 70%;
+            display: flex;
+        }
+
+        .aaprara1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            border: solid 1px black;
+            height: 100%;
+            width: 15%;
+
+        }
+
+        .aaprara1 div {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .aapraa11head {
+            height: 17.5%;
+            border-bottom: solid 1px black;
+        }
+
+        .aapraa1a {
+            border-bottom: solid 1px black;
+            height: 33%;
+        }
+
+        .aapraa1a div {
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+
+        .aapraa1b {
+
+            border-bottom: solid 1px black;
+            height: 18%;
+        }
+
+        .aapraa1b div {
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+
+        .aapraa1c {
+            border-bottom: solid 1px black;
+            height: 32%;
+        }
+
+        .aapraa1c div {
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+
+        .aapraa1c div {
+            border-left: solid 1px black;
+
+        }
+
+        .aapraa1a div {
+            border-left: solid 1px black;
+        }
+
+        .aapraa1b div {
+            border-left: solid 1px black;
+        }
+
+
+        .aaprara2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            border: solid 1px black;
+            height: 100%;
+            width: 10%;
+        }
+
+        .aapraa2a {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 33%;
+            width: 100%;
+            border-bottom: solid 1px black;
+        }
+
+        .aapraa2b {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            height: 49.5%;
+
+        }
+
+        .aapraa2a div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 50%;
+            border-left: solid 1px black;
+        }
+
+        .aapraa2b div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 50%;
+            border-left: solid 1px black;
+        }
+
+        .aaprara3 {
+
+            text-align: center;
+            border: solid 1px black;
+            height: 100%;
+            width: 47%;
+
+        }
+
+        .aapara3 {
+            display: flex;
+            height: 75%;
+            text-align: center;
+
+
+        }
+
+        .aapara3a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 18%;
+            padding: 5px;
+            border-right: solid 1px black;
+
+        }
+
+        .aapara3b {
+            width: 8%;
+            height: 100%;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border-right: 1px solid black;
+        }
+
+        .aapara3b :nth-child(1) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 40%;
+        }
+
+        .aapara3b :nth-child(3) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 60%;
+        }
+
+        .aapara3c {
+
+            width: 14%;
+            height: 100%;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border-right: 1px solid black;
+        }
+
+        .aapara3c :nth-child(1) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 40%;
+        }
+
+        .aapara3c :nth-child(3) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 60%;
+        }
+
+        .aapara3d {
+            width: 60%;
+        }
+
+        .aapara3d1 {
+            display: flex;
+            align-items: center;
+            height: 40%;
+            padding: 2.5px;
+            border-bottom: solid 1px black;
+        }
+
+        .aapara3d2 {
+            display: flex;
+            justify-content: space-around;
+            height: 60%;
+        }
+
+        .aapara3d3 {
+            width: 30%;
+            height: 100%;
+            border-right: solid 1px black;
+            padding: 2.5px;
+        }
+
+        .aapara3d4 {
+            width: 70%;
+            height: 100%;
+
+        }
+
+        .aapara3d4 :nth-child(1) {
+            border-bottom: solid black 1px;
+            padding: 2.5px;
+        }
+
+        .aaprara4 {
+            text-align: center;
+            border: solid 1px black;
+            height: 100%;
+            width: 11%;
+
+        }
+
+        .aaprara4 :nth-child(2) {
+            padding: 5px;
+            height: 41.25%;
+            text-align: start;
+        }
+
+        .aaprara4 :nth-child(3) {
+            padding: 5px;
+            height: 41.25%;
+            text-align: start;
+        }
+
+        .aaprara5 {
+            border: solid 1px black;
+            height: 100%;
+            width: 7%;
+        }
+
+        .aaprara5a {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 30%;
+            border-bottom: solid 1px black;
+        }
+
+        .aaprara5a :nth-child(1) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 50%;
+            border-right: solid 1px black;
+        }
+
+        .aaprara5a :nth-child(2) {
+            width: 50%;
+
+        }
+
+        .aaprara5b {
+            display: flex;
+            height: 70%;
+            text-align: center;
+        }
+
+        .aaprara5b1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 70%;
+            width: 50%;
+            border-right: 1px solid black;
+            padding-bottom: 2.5px;
+        }
+
+        .aaprara5b2 {
+            height: 70%;
+            width: 50%;
+        }
+
+        .aaprara5b2 :nth-child(1) {
+            height: 50%;
+            border-bottom: 1px solid black;
+        }
+
+        .aaprara5b2 :nth-child(2) {
+            height: 50%;
+        }
+
+
+        .bellota {
+            font-weight: 600;
+            width: 10%;
+            text-align: center;
+            border-left: solid 1px black;
+        }
+
+        .bellota :nth-child(1) {
+
+            height: 50%;
+            border-bottom: solid 1px black;
+        }
+
+        .bellota :nth-child(2) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+
+        }
+
+        .middleThree {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            font-size: 12px;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        .middleThree :nth-child(1) {
+            height: 50%;
+            border-bottom: 2px solid black;
+        }
+
+        .middleThree :nth-child(2) {
+            border-bottom: 2px solid black;
+
+            height: 25%;
+        }
+
+        .middleThree :nth-child(3) {
+            height: 25%;
+        }
+
+        /*  */
+        .bg-color {
+            background-color: rgb(240, 240, 240);
+
+        }
+
+        .bg-color2 {
+            background-color: rgb(214, 214, 214);
+        }
+
+        .bg-color3 {
+            background-color: rgb(180, 176, 176);
+        }
+
+        .textsize {
+            font-size: x-small;
+        }
+
+        .lightColor {
+            color: rgb(224, 222, 222);
+        }
+
+        /* ============================ */
+        .pesada {
+            display: flex;
+            border-bottom: solid 1px black;
+            border-right: solid 1px black;
+        }
+
+        .pesada1 {
+            display: flex;
+            width: 100%;
+            /* background-color: orange; */
+        }
+
+        .pesada2 {
+            width: 70%;
+            height: 100%;
+        }
+
+
+        .pesada4 {
+            display: flex;
+            height: 9%;
+            border-bottom: solid 1px black;
+        }
+
+        .pesada4 :nth-child(1) {
+            width: 12%;
+            text-align: center;
+        }
+
+        .pesada4 :nth-child(2) {
+            width: 6%;
+        }
+
+        .pesada4 :nth-child(3) {
+            width: 16%;
+            text-align: center;
+            border-right: solid 1px black;
+
+        }
+
+        .pesada4 :nth-child(4) {
+            width: 10%;
+        }
+
+        .pesada4 :nth-child(5) {
+            width: 16%;
+            text-align: center;
+        }
+
+
+        .pesada5 {
+            display: flex;
+            height: 80%;
+
+        }
+
+        .pesada6 {
+            display: flex;
+            height: 9%;
+            margin-top: 4px;
+            text-align: center;
+            border-top: solid 1px black;
+        }
+
+        .pesada6 :nth-child(1) {
+
+            width: 44.5%;
+            border-bottom: solid 1px black;
+        }
+
+        .pesada6 :nth-child(2) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 12.5%;
+            border-bottom: solid 1px black;
+
+        }
+
+        .pesada6 :nth-child(3) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
+            border-bottom: solid 1px black;
+
+
+        }
+
+        .pesada6 :nth-child(4) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 12.5%;
+            border-bottom: solid 1px black;
+
+        }
+
+        .pesada6 :nth-child(5) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 5.25%;
+        }
+
+        .pesada6 :nth-child(6) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 5.25%;
+        }
+
+        .pesada8 {
+            width: 29%;
+            text-align: center;
+
+        }
+
+        .pesada7 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 5%;
+            text-align: center;
+        }
+
+        .pesada7 :nth-child(1) {
+            width: 100%;
+            height: 16%;
+            display: flex;
+            align-items: center;
+            border-bottom: solid 1px black;
+            justify-content: center;
+        }
+
+        .pesada7 :nth-child(2) {
+            height: 10%;
+
+        }
+
+        .pesada7 :nth-child(3) {
+            height: 10%;
+
+        }
+
+        .pesada7 :nth-child(4) {
+            height: 10%;
+
+        }
+
+        .pesada7 :nth-child(5) {
+            border-bottom: solid 1px black;
+            height: 9.5%;
+
+        }
+
+        .pesada7 :nth-child(6) {
+
+            border-bottom: solid 1px black;
+            height: 9.5%;
+        }
+
+        .pesada7 :nth-child(7) {
+            height: 9.5%;
+            border-bottom: solid 1px black;
+        }
+
+        .pesada7 :nth-child(8) {
+            height: 10%;
+
+        }
+
+        .noneBottom {
+            border-bottom: none;
+            padding: 4.4px;
+            border-bottom-color: white;
+        }
+
+        .noneTop {
+            border-top: none;
+        }
+
+        .noneLeft {
+            border-left: none;
+        }
+
+        .noneRight {
+            border-right: none;
+        }
+
+        .pesada9 {
+            width: 16%;
+            text-align: center;
+
+        }
+
+        .pesada10 {
+            text-align: center;
+            width: 50%;
+
+        }
+
+        .pesada3 {
+            width: 30%;
+            text-align: center;
+        }
+
+        .tb1 {
+            width: 30%;
+            border: none;
+            background-color: white;
+        }
+
+        .pad0 {
+            padding: 0px;
+        }
+
+        .xxsmall {
+            font-size: xx-small;
+        }
+
+        .headwid1 {
+            width: 15%;
+        }
+
+        .headwid2 {
+            width: 15%;
+        }
+
+        .headwid3 {
+            width: 35%;
+        }
+
+        .headwid4 {
+            width: 18%;
+        }
+
+        .headwid5 {
+            width: 8.5%;
+        }
+
+        .headwid6 {
+            width: 8.5%;
+        }
+
+        .headwidc {
+            width: 17%;
+        }
+
+        .paddHigh {
+            padding: 25px;
+        }
+
+        .paddHigh2 {
+            padding: 10px;
+        }
+
+        .paddHigh3 {
+            padding: 5px;
+        }
+
+        .paddHigh4 {
+            padding-left: 95px;
+            padding-right: 95px;
+        }
+
+        .visita {
+            display: flex;
+            border-bottom: solid 1px black;
+            height: 18px;
+        }
+
+        .centerContent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .visita :nth-child(1) {
+            font-weight: bold;
+            width: 6%;
+
+        }
+
+        .visita :nth-child(2) {
+            display: flex;
+            align-items: center;
+            width: 29%;
+            font-weight: bold;
+        }
+
+        .visita :nth-child(3) {
+            font-weight: bold;
+            width: 6%;
+        }
+
+        .visita :nth-child(4) {
+            width: 29%;
+            font-weight: bold;
+        }
+
+        .visita :nth-child(5) {
+            width: 3%;
+            font-weight: bold;
+        }
+
+        .visita :nth-child(6) {
+            width: 7%;
+            font-weight: bold;
+        }
+
+        .visita :nth-child(7) {
+            width: 18.5%;
+            font-weight: bold;
+        }
+
+        .visita1 {
+            display: flex;
+        }
+
+        .visita1a {
+            width: 65%;
+            text-align: center;
+        }
+
+        .visita1b {
+            width: 35%;
+        }
+
+        .verticalText {
+            writing-mode: vertical-lr;
+            text-orientation: sideways-right;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .Observa1 {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: left;
+        }
+
+        .Observa2 {
+            text-align: left;
+        }
+
+        footer {
+            display: flex;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            background-color: rgb(255, 255, 255);
+            position: fixed;
+            bottom: 0;
+            width: 97%;
+        }
+        .foot1 {
+            width: 15%;
+            margin-top: 10px;
+            
+        }
+        .foot2{
+            width: 8%;
+            margin-top: 10px;
+        }
+        .foot3 {
+            width: 77%;
+        }
+        .sign1 {
+            display: flex;
+            gap: 20px;
+        }
+        .sign1 img {
+            margin-top: 10px;
+        }
+        .sign2{
+            height: 50px;
+            width: 100%;
+            padding: 10px;
+            border: solid 1px rgb(90, 89, 89);
+            margin-bottom: 8px;
+        }
+        .foot3 span {
+            font-weight: 800;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="mainHeader">
+            <div class="head">
+                <div class="head1">
+                    <div>
+                        <div>
+                            <img src="./asset/logo.PNG" alt="logo" height="30">
+                        </div>
+                        <div>
+                            <p>Redycomercio</p>
+                            <p>soluciones comerciales en la red</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="head1">
+                    <p>Acta de inspeccion alimentacion bellota</p>
+                    <p>SALIDA MONTANERA</p>
+                </div>
+                <div class="divider"></div>
+                <div class="head1">
+                    <p>ACT_I_IB_SA_ALM_Rev.2_220322</p>
+                    <p>Hora - I:____Hora-F:______Pag_____de____</p>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <div>
+    <div style="height: 60px;"></div>
+    <div class="topbar">
+        <div>
+            <p>Fecha:</p>
+            <div>
+                <p>Codio acta ITACA:</p>
+                <div class="bar"></div>
+            </div>
+            <div>
+                <p>Codio acta ITACA:</p>
+                <div class="bar"></div>
+            </div>
+            <P>inspector</P>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <p>Tibular:</p>
+        </div>
+        <div>
+            <div>Explotacion</div>
+            <div>No REGA:</div>
+            <div>Municipio/Provincia:</div>
+            <div>Coordenadas:</div>
+            <div>/</div>
+        </div>
+        <hr>
+        <div>
+            <p>Justificacion desviacion tiempo:</p>
+        </div>
+    </div>
+
+    <div class="mainTable">
+        <div class="mainTable1">
+            <div class="mainTable1Middle textsize">
+                <div class="mainTable1Middle1">
+                    <div class="mainTable1Left">
+                        <div>
+                            <p>IDENTIFICACION RAZA Y</p>
+                            <p>EDAD</p>
+                        </div>
+                    </div>
+
+                    <div class="middleOne">
+
+                        <table>
+                            <tr>
+                                <th>Identificacion lote alimentacion</th>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <th class="paddHigh2">Color</th>
+                                <th class="paddHigh2">Crotal ITCACA</th>
+                                <th class="paddHigh2">Lote</th>
+                            </tr>
+                            <tr>
+                                <td class="paddHigh">.</td>
+                                <td class="paddHigh">.</td>
+                                <td class="paddHigh">.</td>
+                            </tr>
+                        </table>
+
+                        <div class="paddHigh3">
+                            IDENTIFICACIÓN: ID ARCHIVO MULTIM
+                        </div>
+                        <div class="paddHigh3">
+                            UBICACIÓN LOTE: ID ARCHIVO MULT
+                        </div>
+
+                    </div>
+
+                    <div class="middleTwo">
+                        <div class="aaprara1 textsize">
+                            <div class="aapraa11head bg-color2">
+                                <span>AA para muestrear </span>
+
+                            </div>
+                            <div class="aapraa1a">
+                                <div class="bg-color2">CENSO AA
+                                    VISITA
+                                    ANTERIOR</div>
+                                <div></div>
+                            </div>
+                            <div class="aapraa1b">
+                                <div class="bg-color2">BAJAS</div>
+                                <div></div>
+
+                            </div>
+                            <div class="aapraa1c">
+                                <div class="bg-color2">TOTAL AA</div>
+                                <div class="lightColor">AA sobre los
+                                    que se aplica
+                                    el muestreo</div>
+                            </div>
+                        </div>
+                        <div class="aaprara2 textsize">
+                            <div class="aapraa11head bg-color2">
+                                <span>Muestro identificación </span>
+                            </div>
+                            <div class="aapraa2a">
+                                <div>Nº AA muestre ados</div>
+                                <div></div>
+                            </div>
+                            <div class="aapraa2b">
+                                <div>No cumplen</div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="aaprara3 textsize">
+                            <div class="aapraa11head bg-color2">
+                                <span>Verificación de la identificación</span>
+                            </div>
+                            <dvi class="aapara3">
+                                <div class="aapara3a bg-color">
+                                    <span>¿Verificas el 100% de las identificaciones del lote?</span>
+                                </div>
+                                <div class="aapara3b">
+                                    <div>SI</div>
+                                    <hr>
+                                    <div>NO</div>
+                                </div>
+                                <div class="aapara3c">
+                                    <div>SI conforme</div>
+                                    <hr>
+                                    <div>NO conforme</div>
+                                </div>
+                                <div class="aapara3d">
+                                    <div class="aapara3d1">Nº AA</div>
+                                    <div class="aapara3d2">
+                                        <div class="aapara3d3">Nº AA</div>
+                                        <div class="aapara3d4">
+                                            <div class="bg-color">Nueva identificación</div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </dvi>
+                        </div>
+                        <div class="aaprara4 textsize">
+                            <div class="aapraa11head bg-color2 ">
+                                Fecha de nacimiento
+                            </div>
+                            <div class="lightColor">Desde:</div>
+                            <div class="lightColor">Hasta:</div>
+                        </div>
+                        <div class="aaprara5 textsize">
+
+                            <div class="aapraa11head bg-color2">
+                                <span>Raza</span>
+                            </div>
+                            <div class="aaprara5a">
+                                <div class="bg-color">50%</div>
+                                <div></div>
+                            </div>
+                            <div class="aaprara5b">
+                                <div class="aaprara5b1 bg-color">
+                                    <div>75%</div>
+                                    <div>100%</div>
+                                </div>
+                                <div class="aaprara5b2">
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bellota bg-color2">
+                            <div>Nº AA conforme peso e identificación</div>
+                            <div>BELLOTA</div>
+                        </div>
+                    </div>
+
+                    <div class="middleThree">
+                        <div></div>
+                        <div>APTO</div>
+                        <div>NO APTO</div>
+                    </div>
+                </div>
+
+                <div class="pesada">
+                    <div class="mainTable1Left">
+                        <p>VERIFICACIONESPESO</p>
+                    </div>
+                    <div class="mainTable1Left">
+                        <p>PESADAMUESTRA AA</p>
+                    </div>
+                    <div class="pesada1 textsize">
+                        <div class="pesada2">
+                            <div class="pesada4">
+                                <div class="bg-color2">Nº AA muestreados </div>
+                                <div></div>
+                                <div class="bg-color2">ID ARCHIVO MULTIMEDIA</div>
+                                <div></div>
+                                <div class="bg-color2">Identificación báscula:</div>
+                                <div></div>
+                            </div>
+                            <div class="pesada5">
+                                <div class="pesada7 ">
+                                    <div class="bg-color">Kilos</div>
+                                    <div>P1</div>
+                                    <div>P2</div>
+                                    <div>P3</div>
+                                    <div></div>
+                                    <div>P5</div>
+                                    <div></div>
+                                    <div></div>
+                                    <div>P8</div>
+                                </div>
+                                <table class="pesada8">
+                                    <tr>
+                                        <th>Archivo <br> Multimedia </th>
+                                        <th>Kilos</th>
+                                        <th>Archivo<br> Multimedia </th>
+                                        <th>Kilos</th>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                    </tr>
+                                </table>
+                                <div class="pesada9">
+                                    <table>
+                                        <tr>
+                                            <th class="noneBottom">Archivo <br> Multimedia</th>
+                                            <th>Kilos</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="noneBottom">1</td>
+                                            <td class="noneBottom">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="noneBottom">1</td>
+                                            <td class="noneBottom">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="noneBottom">1</td>
+                                            <td class="noneBottom">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="">1</td>
+                                            <td class="">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="noneBottom">1</td>
+                                            <td class="noneBottom">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="noneBottom">1</td>
+                                            <td class="noneBottom">1</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="pesada10">
+                                    <table class="">
+                                        <tr>
+                                            <th>Archivo <br> Multimedia </th>
+                                            <th>Kilos</th>
+                                            <th>Archivo<br> Multimedia </th>
+                                            <th>Kilos</th>
+                                            <th>Archivo <br> Multimedia </th>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>6</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>7</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="pesada6">
+                                <div class="bg-color2"></div>
+                                <div class="bg-color">PESO MEDIO</div>
+                                <div></div>
+                                <div class="bg-color">CUMPLEN</div>
+                                <div>SI</div>
+                                <div>NO</div>
+                            </div>
+                        </div>
+                        <div class="pesada3">
+                            <table>
+                                <tr>
+                                    <th class="tb1"></th>
+                                    <th>Verificación de la de la báscula </th>
+                                    <th class="headwidc">Cumple</th>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <th class="headwid1 bg-color2">Kilos</th>
+                                    <th class="headwid2 bg-color2">Archivo <br>Multimedia</th>
+                                    <th class="headwid3 bg-color2">1ª Desviación báscula</th>
+                                    <th class="headwid4 bg-color2"></th>
+                                    <th class="headwid5 bg-color2">SI</th>
+                                    <th class="headwid6 bg-color2">NO</th>
+                                </tr>
+                                <tr>
+                                    <td>.</td>
+                                    <td>.</td>
+                                    <td class="bg-color2">2ª Desviación báscula</td>
+                                    <td></td>
+                                    <td>SI</td>
+                                    <td>NO</td>
+                                </tr>
+                                <tr>
+                                    <td>P50</td>
+                                    <td>.</td>
+                                    <td class="bg-color2">3ª Desviación báscula</td>
+                                    <td>.</td>
+                                    <td>SI</td>
+                                    <td>NO</td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <th class="pad0 xxsmall">Tamaño del lote<br>(nº AA)</th>
+                                    <th class="pad0 xxsmall">Nº AA inspeccionados</th>
+                                    <th class="pad0 xxsmall">Nº AA mal identificados para <br> rechazar el muestreo (*)
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="pad0">1</td>
+                                    <td class="pad0">2</td>
+                                    <td class="pad0">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="pad0">4</td>
+                                    <td class="pad0">5</td>
+                                    <td class="pad0">6</td>
+                                </tr>
+                                <tr>
+                                    <td class="pad0">7</td>
+                                    <td class="pad0">8</td>
+                                    <td class="pad0">9</td>
+                                </tr>
+                                <tr>
+                                    <td class="pad0">0</td>
+                                    <td class="pad0">0</td>
+                                    <td class="pad0">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="pad0">1</td>
+                                    <td class="pad0">2</td>
+                                    <td class="pad0">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="pad0">4</td>
+                                    <td class="pad0">5</td>
+                                    <td class="pad0">6</td>
+                                </tr>
+                                <tr>
+                                    <td class="pad0">7</td>
+                                    <td class="pad0">8</td>
+                                    <td class="pad0">9</td>
+                                </tr>
+                                <tr>
+                                    <td class="pad0">0</td>
+                                    <td class="pad0">0</td>
+                                    <td class="pad0">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="pad0">7</td>
+                                    <td class="pad0">8</td>
+                                    <td class="pad0">9</td>
+                                </tr>
+                                <tr>
+                                    <td class="pad0">0</td>
+                                    <td class="pad0">0</td>
+                                    <td class="pad0">0</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainTable1Right textsize">
+                <p>ACTA NO CONFORME</p>
+                <p>SI</p>
+                <p>NO</p>
+            </div>
+        </div>
+
+        <div>
+            <div class="visita textsize">
+                <div class="bg-color2 centerContent">VISITA ANEXA:</div>
+                <div class="bg-color2">CUMPLIMENTAR EL DÍA DE LA PESADA DEL 100% DE LOS AA </div>
+                <div class="centerContent">Nº Acta anterior:</div>
+                <div></div>
+                <div class="bg-color2 centerContent">Fecha</div>
+                <div></div>
+                <div class="bg-color3 centerContent"></div>
+            </div>
+            <div class="visita1">
+                <div class="visita1a textsize">
+                    <table>
+                        <tr>
+                            <th colspan="10" class="noneLeft pad0">COMPROBACIÓN DIRECTA</th>
+                        </tr>
+
+                        <tr>
+                            <td class="pad0 verticalText bg-color" rowspan="10">DISPONIBILIDAD DE RECURSOS NATURALES
+                            </td>
+                            <td class="pad0 bg-color" rowspan="3" colspan="2">Los animales <br> tienen acceso a
+                                <br>piensos
+                            </td>
+                            <td class="pad0 bg-color" rowspan="3" colspan="2">Cercas
+                                reservadas<br>par<br>aprovechamiento<br>posterior</td>
+                            <td class="pad0 bg-color2" colspan="5">Zonas de aprovechamiento</td>
+                        </tr>
+                        <tr>
+                            <td class="pad0 bg-color" colspan="2">Totales</td>
+                            <td class="pad0 verticalText bg-color" rowspan="3">Reservadas</td>
+                            <td class="paddHigh4 lightColor">REF. PARCELARIA</td>
+                            <td class="paddHigh4 lightColor">ID. ARCHIVO MULTIMEDIA</td>
+                        </tr>
+                        <tr>
+                            <td class="pad0 lightColor">Nº <br> cerca</td>
+                            <td class="pad0 lightColor">Has</td>
+                            <td class="paddHigh4 lightColor">REF. PARCELARIA</td>
+                            <td class="paddHigh4 lightColor">ID. ARCHIVO MULTIMEDIA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pad0" rowspan="7">SI</td>
+                            <td class="pad0" rowspan="7">NO</td>
+                            <td class="pad0" rowspan="7">SI</td>
+                            <td class="pad0" rowspan="7">NO</td>
+                            <td class="pad0 bg-color" colspan="2">Reservadas</td>
+                            <td class="paddHigh4 lightColor">REF. PARCELARIA</td>
+                            <td class="paddHigh4 lightColor">ID. ARCHIVO MULTIMEDIA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pad0 lightColor">Nº <br> cercas</td>
+                            <td class="pad0 lightColor">Has</td>
+                            <td class="pad0 verticalText bg-color" rowspan="3">En uso</td>
+                            <td class="paddHigh4 lightColor">REF. PARCELARIA</td>
+                            <td class="paddHigh4 lightColor">ID. ARCHIVO MULTIMEDIA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pad0 bg-color" colspan="2">En uso </td>
+                            <td class="paddHigh4 lightColor">REF. PARCELARIA</td>
+                            <td class="paddHigh4 lightColor">ID. ARCHIVO MULTIMEDIA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pad0 lightColor" rowspan="2">Nº <br> cercas</td>
+                            <td class="pad0 lightColor" rowspan="2">Has</td>
+                            <td class="paddHigh4 lightColor">REF. PARCELARIA</td>
+                            <td class="paddHigh4 lightColor">ID. ARCHIVO MULTIMEDIA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pad0 verticalText bg-color" rowspan="3">Aprovechadas</td>
+                            <td class="paddHigh4 lightColor">REF. PARCELARIA</td>
+                            <td class="paddHigh4 lightColor">ID. ARCHIVO MULTIMEDIA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pad0 bg-color" colspan="2">Aprovechadas</td>
+                            <td class="paddHigh4 lightColor">REF. PARCELARIA</td>
+                            <td class="paddHigh4 lightColor">ID. ARCHIVO MULTIMEDIA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pad0 lightColor">Nº <br> cercas</td>
+                            <td class="pad0 lightColor">Has</td>
+                            <td class="paddHigh4 lightColor">REF. PARCELARIA</td>
+                            <td class="paddHigh4 lightColor">ID. ARCHIVO MULTIMEDIA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pad0 verticalText bg-color" rowspan="4">SUPLEMEN <br> TACIÓN</td>
+                            <td class="pad0 Observa1" colspan="9">Observaciones:</td>
+                        </tr>
+                        <tr>
+                            <td class="pad0 bg-color" colspan="2" rowspan="3">¿El comportamiento <br>de los animales
+                                <br>indica que existe <br>suplementación?
+                            </td>
+                            <td class="pad0" rowspan="3">
+                                <p>SI</p>
+                                <hr>
+                                <p>NO</p>
+                            </td>
+                            <td class="pad0" colspan="3" rowspan="3">¿Existen indicios de la <br> suplementación en las
+                                <br> heces?
+                            </td>
+                            <td class="pad0" rowspan="3">
+                                <p>SI</p>
+                                <hr>
+                                <p>NO</p>
+                            </td>
+                            <td class="lightColor">ID ARCHIVO MULTIMEDIA HECES</td>
+                            <td class="Observa2" colspan="1" rowspan="3">Observaciones heces:</td>
+                        </tr>
+                        <tr>
+                            <td class="lightColor">ID ARCHIVO MULTIMEDIA HECES</td>
+                        </tr>
+                        <tr>
+                            <td class="lightColor">ID ARCHIVO MULTIMEDIA HECES</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="visita1b textsize">
+                    <table style="height: 100%;">
+                        <tr>
+                            <th colspan="3">ACCIONES CORRECTORAS</th>
+                            <th colspan="7">RESULTADO VISITA SALIDA</th>
+                            <th rowspan="5" class="verticalText">ACTA NO CONFORME</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="4" class="bg-color Observa1">
+                                <p>¿Es necesario  <br> ajustar el número <br> de AA que <br> aprovechan la <br>
+                                    montanera?</p>
+                                <br>
+                                <p>¿Es necesario <br> rebajar la <br>calificación <br>alimentación a la <br>que optan
+                                    los <br>lote(s)?
+                                </p>
+                            </td>
+                            <td rowspan="2">SI</td>
+                            <td rowspan="2">NO</td>
+                            <td colspan="2" class="bg-color3">14</td>
+                            <td colspan="2" class="bg-color">Validez máxima del <br>
+                                acta para salida
+                            </td>
+                            <td colspan="2">Indicar fecha dd/mm/aa</td>
+                            <td class="bg-color3">17</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="6" class="verticalText">Marcar la opción que corresponda</td>
+                            <td rowspan="6">22</td>
+                            <td colspan="5">Una vez superado el plazo de validez de la visita los animales son
+                                descalificados a alimentación cebo de campo
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td rowspan="2">SI</td>
+                            <td rowspan="2">NO</td>
+                            <td colspan="3" rowspan="2">Una vez finalizado el plazo de
+                                validez se realizará una nueva visita
+                                para comprobar la disponibilidad de
+                                recursos
+                            </td>
+                            <td colspan="2">Fecha límite</td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="2">dd/mm/aa</td>
+
+                        </tr>
+                        <tr>
+                            <td rowspan="3" class="bg-color">rellenar acta de <br>descalificación de <br>AA a otra <br>alimentación?</p>
+                            </td>
+                            <td rowspan="3">SI</td>
+                            <td rowspan="3">NO</td>
+                            <td rowspan="2" colspan="5" class="Observa1">
+                                <p class="">Se va a realizar una visita inopinada</p>
+                                <p> En caso que el cliente ganadero no permita la realización de las visitas
+                                    (inopinadas, dirimente, extraordinaria,…), Araporcei aplicará el
+                                    régimen sancionador establecido en el contrato de prestación de
+                                    servicios.</p>
+
+                            </td>
+
+                            <td class="verticalText">SI</td>
+
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="verticalText">NO</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" class="Observa1">Observaciones inopinada:</td>
+
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height: 100px;"></div>
+    <footer class="textsize">
+        <div class="foot1">
+            <p>Fdo.: Inspector Técnico </p>
+            <img src="./asset/sign123.PNG" alt="sign">
+        </div>
+        <div class="foot2">Nombre / DNI <br> Fdo. Cliente/Recibí</div>
+        <div class="foot3">
+            <div class="sign1">
+                <img src="./asset/sign123.PNG" alt="sign2">
+                <div class="sign2">OBSERVACIONES:</div>
+            </div>
+            <div>
+                <span>Recycomercio, S.L.</span>C/ Arquitectura, 3 Planta 2º - Modulo 1 y 2 41703 Dos Hermanas (Sevilla) – Tel. 954-00.00.00 y Fax. 954-00.00.00 Email: red@redycomercio.com
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
